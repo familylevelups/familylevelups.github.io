@@ -1,6 +1,8 @@
 # Family Level Ups
 
-Private site for Joey, Maverick, and Ellie. The home page is the Family Level-Ups Record: notes and videos from the family.
+Private family site. The home page explains level ups. June Bug’s tab keeps her videos.
+
+Joejoe is Joey. Maverick’s tab is not up yet.
 
 It is published with GitHub Pages from the `main` branch at <https://familylevelups.github.io/>.
 

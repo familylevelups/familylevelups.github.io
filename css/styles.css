@@ -187,7 +187,49 @@ a:focus-visible {
 }
 
 .mast-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.15rem 1rem;
   padding: 0.35rem 0;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.2rem 0.45rem;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.site-nav a:visited {
+  color: var(--ink);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--accent-strong);
 }
 
 .brand {
@@ -361,6 +403,54 @@ h2 {
   font-size: 0.95rem;
 }
 
+.people {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 42rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  min-height: 8.5rem;
+  padding: 1rem 1.05rem 1.1rem;
+  background: var(--bg-panel);
+  border: 2px solid var(--stroke);
+  box-shadow: 5px 5px 0 var(--shadow);
+  color: var(--ink);
+}
+
+a.person-card {
+  text-decoration: none;
+}
+
+a.person-card:visited {
+  color: var(--ink);
+}
+
+a.person-card:hover,
+a.person-card:focus-visible {
+  color: var(--ink);
+  border-color: var(--amber);
+}
+
+.person-card h2 {
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+}
+
+.person-card .kicker {
+  color: var(--accent);
+}
+
+.person-card.is-soon {
+  border-style: dashed;
+}
+
 .site-footer {
   border-top: 2px solid var(--stroke);
   padding: 1.25rem 0 2rem;
@@ -390,6 +480,10 @@ h2 {
 
   .family-catalog {
     padding-top: 1rem;
+  }
+
+  .people {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
