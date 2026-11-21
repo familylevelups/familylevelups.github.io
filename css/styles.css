@@ -312,8 +312,21 @@ h2 {
 
 .level-hero {
   display: block;
-  margin: 0 0 1.15rem;
+  position: relative;
+  margin: 0 0 1rem;
   max-width: 100%;
+  padding: 0.32rem 0.36rem 0.82rem;
+  background:
+    radial-gradient(circle at 0.72rem calc(100% - 0.4rem), var(--accent) 0 0.16rem, #6a5344 0.17rem 0.25rem, transparent 0.27rem),
+    radial-gradient(circle at 1.28rem calc(100% - 0.4rem), #f3e6cf 0 0.16rem, #6a5344 0.17rem 0.25rem, transparent 0.27rem),
+    repeating-linear-gradient(90deg, #0e0c0a 0 1px, transparent 1px 3px) right 0.4rem bottom 0.28rem / 0.85rem 0.26rem no-repeat,
+    linear-gradient(#100e0c, #100e0c) left bottom / 100% 0.82rem no-repeat,
+    linear-gradient(180deg, #3c342e 0%, #241c18 100%);
+  border: 2px solid #6b5648;
+  border-radius: 0.7rem 0.7rem 0.5rem 0.5rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 180, 162, 0.55),
+    3px 4px 0 var(--shadow);
 }
 
 .level-hero img {
@@ -321,10 +334,38 @@ h2 {
   width: 100%;
   max-width: 100%;
   height: auto;
-  background: var(--bg-panel);
-  border: 2px solid var(--stroke);
-  border-radius: 0.75rem;
-  box-shadow: 5px 5px 0 var(--shadow);
+  background: #000;
+  border: 0;
+  border-radius: 0.28rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.72),
+    inset 0 0 10px rgba(0, 0, 0, 0.28);
+}
+
+.level-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0.32rem;
+  right: 0.36rem;
+  bottom: 0.82rem;
+  left: 0.36rem;
+  border-radius: 0.28rem;
+  background: linear-gradient(122deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 16%, transparent 38%);
+  pointer-events: none;
+}
+
+.level-hero::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -0.22rem;
+  height: 0.22rem;
+  background:
+    linear-gradient(#2b231c, #2b231c) left / 22% 100% no-repeat,
+    linear-gradient(#2b231c, #2b231c) right / 22% 100% no-repeat;
+  pointer-events: none;
 }
 
 .family-entry p {
@@ -505,10 +546,15 @@ a.person-card:focus-visible {
 }
 
 @media (min-width: 900px) {
+  .page-head:has(+ .family-catalog .level-hero),
+  .family-catalog:has(.level-hero) {
+    width: min(1400px, calc(100% - 4rem));
+  }
+
   .family-entry:has(.level-hero) {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
-    column-gap: 2.25rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 2rem;
     align-items: center;
     max-width: none;
   }
