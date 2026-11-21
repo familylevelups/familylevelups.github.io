@@ -97,10 +97,7 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
-  min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--serif);
@@ -109,10 +106,6 @@ body {
   line-height: 1.65;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-}
-
-main {
-  flex: 1 0 auto;
 }
 
 ::selection {
@@ -177,8 +170,11 @@ a:focus-visible {
 .wrap,
 .mast-inner,
 .footer-inner {
-  width: min(1400px, calc(100% - 2rem));
+  box-sizing: border-box;
+  width: min(1120px, 100%);
   margin-inline: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .mast {
@@ -294,16 +290,26 @@ h2 {
 }
 
 .family-catalog {
-  padding: 1rem 0 0;
+  padding: 1.25rem 0 0;
 }
 
 .family-entry {
-  max-width: 42rem;
-  margin: 0 0 2.75rem;
+  max-width: none;
+  margin: 0 0 2rem;
 }
 
 .family-catalog > .family-entry:last-child {
-  margin-bottom: 3.5rem;
+  margin-bottom: 0;
+}
+
+.read-col {
+  width: min(720px, 100%);
+  margin-inline: auto;
+}
+
+.split {
+  display: grid;
+  gap: 1.15rem;
 }
 
 .family-entry .kicker {
@@ -503,8 +509,7 @@ h2 {
 .people {
   display: grid;
   gap: 0.9rem;
-  max-width: 42rem;
-  margin: 0 0 3.5rem;
+  margin: 2rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -524,10 +529,11 @@ h2 {
 }
 
 .person-thumb {
-  width: 5.5rem;
-  max-width: 5.5rem;
-  height: 5.5rem;
+  width: 7.5rem;
+  max-width: 7.5rem;
+  height: 7.5rem;
   object-fit: cover;
+  object-position: center 20%;
   border: 2px solid var(--stroke);
   border-radius: 0.35rem;
 }
@@ -575,6 +581,7 @@ a.person-card:focus-visible {
 }
 
 .site-footer {
+  margin-top: 56px;
   border-top: 2px solid var(--stroke);
   padding: 1.25rem 0 2rem;
 }
@@ -591,6 +598,10 @@ a.person-card:focus-visible {
   font-size: clamp(1.85rem, 3vw, 2.5rem);
 }
 
+.level-up-copy p {
+  margin: 0.85rem 0 0;
+}
+
 @media (min-width: 700px) {
   .brand {
     font-size: 1.25rem;
@@ -604,21 +615,23 @@ a.person-card:focus-visible {
     padding-top: 1rem;
   }
 
-  .people {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (min-width: 900px) {
-  .family-entry:has(.tv) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 2rem;
-    align-items: start;
-    max-width: none;
+  .wrap,
+  .mast-inner,
+  .footer-inner {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
-  .family-entry:has(.tv) .tv {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .hero-grid .tv {
     grid-column: 2;
     grid-row: 1;
     margin: 0;
@@ -629,9 +642,23 @@ a.person-card:focus-visible {
     border-radius: 1.35rem;
   }
 
-  .level-up-copy {
+  .hero-grid .level-up-copy {
     grid-column: 1;
     grid-row: 1;
+  }
+
+  .people {
+    align-items: stretch;
+  }
+
+  .people > li {
+    display: flex;
+  }
+
+  .people .person-card {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
   }
 
   .tv-side {
@@ -654,10 +681,6 @@ a.person-card:focus-visible {
   .tv::after {
     bottom: -0.55rem;
     height: 0.55rem;
-  }
-
-  .family-catalog:has(.tv) .people {
-    max-width: none;
   }
 }
 
