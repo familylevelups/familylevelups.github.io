@@ -674,6 +674,13 @@ a.person-card:focus-visible {
   font-size: 1.05rem;
 }
 
+.analytics-note {
+  margin: 0.65rem 0 0;
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .level-up-copy h1 {
   margin: 0 0 0.45rem;
   font-size: clamp(1.85rem, 3vw, 2.5rem);
