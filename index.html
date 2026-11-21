@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Family Level Ups</title>
     <meta name="description" content="How our family does level ups.">
-    <meta name="theme-color" content="#10140f">
+    <meta name="theme-color" content="#FFF8EC">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/assets/fonts/fraunces-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/source-serif-4-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -27,22 +27,40 @@
       </div>
     </header>
 
-    <main id="content" tabindex="-1">
-      <header class="page-head wrap">
-        <h1>Family Level Ups</h1>
-      </header>
-      <section class="catalog wrap family-catalog" aria-label="Level ups">
-        <div class="family-entry">
-          <p>A level up is a hard thing we work toward and earn a reward for. Rewards can be prizes or cash.</p>
-          <p>Quests come in the mail. June Bug’s handstand quest came with $5.</p>
-          <p>Joejoe travels a lot, so this keeps us connected. His favorite part is watching everyone level up. He does his best to base each level up on the person’s own interests.</p>
-          <p>Maverick ran a 5K as one of his level ups.</p>
+    <main id="content" class="wrap" tabindex="-1">
+      <section class="family-catalog" aria-labelledby="level-up-heading">
+        <div class="split hero-grid">
+          <div class="tv">
+            <picture class="level-hero">
+              <source type="image/webp" srcset="/assets/img/level-up-hero-640.webp 640w, /assets/img/level-up-hero-1024.webp 1024w" sizes="(min-width: 900px) 36rem, calc(100vw - 40px)">
+              <img src="/assets/img/level-up-hero-1024.jpg" srcset="/assets/img/level-up-hero-640.jpg 640w, /assets/img/level-up-hero-1024.jpg 1024w" sizes="(min-width: 900px) 36rem, calc(100vw - 40px)" width="1024" height="576" alt="Storybook illustration of a boy in goggles launching a toy-brick catapult while a girl in a cheer outfit flies through the sky with pom-poms above three playful Labradoodles, under brick letters that spell LEVEL UP!" loading="eager">
+            </picture>
+            <div class="tv-side" aria-hidden="true">
+              <span class="tv-grille"></span>
+              <span class="tv-knob"></span>
+              <span class="tv-knob tv-knob-alt"></span>
+            </div>
+          </div>
+          <div class="level-up-copy">
+            <h1 id="level-up-heading">What’s a Level Up?</h1>
+            <p>A level up is a hard thing we work toward. We set a tough goal, map out a path to get there, and adapt when the failures show up. We don’t say “failure is not an option.” We say “failure is the only option,” because that’s how you learn.</p>
+            <p>Quests come in the mail or in person. Ellie’s handstand quest (we call her June Bug) came with a worksheet, and finishing it earned her $5. The real prize comes when she holds a 10-second handstand: a salad bar party at Jason’s Deli and a surprise gift!</p>
+            <p>Joejoe and Windzay travel a lot, so this helps keep us connected. Our favorite thing in life is watching everyone level up. We build each quest around the person’s own interests. Ellie loves to cheer, so hers is a handstand. Maverick loves engineering, so his is binary code. The big ones end with a party, and every failure along the way counts as progress.</p>
+          </div>
         </div>
-        <ul class="people">
+        <ul class="split people">
           <li>
-            <a class="person-card" href="/june-bug/">
-              <h2>June Bug</h2>
-            </a>
+            <article class="person-card has-art">
+              <picture class="person-art">
+                <source type="image/webp" srcset="/assets/img/june-bug-card-320.webp 320w, /assets/img/june-bug-card-480.webp 480w" sizes="(min-width: 900px) 160px, 120px">
+                <img src="/assets/img/june-bug-card-480.jpg" srcset="/assets/img/june-bug-card-320.jpg 320w, /assets/img/june-bug-card-480.jpg 480w" sizes="(min-width: 900px) 160px, 120px" width="480" height="851" alt="Storybook watercolor of June Bug doing a cartwheel in an autumn park, with stars marked Level 1, Level 2 and Level 3" loading="lazy">
+              </picture>
+              <div class="person-copy">
+                <h2>June Bug</h2>
+                <p class="quest-line">Quest: 10-second handstand</p>
+                <a href="/june-bug/">See her quest</a>
+              </div>
+            </article>
           </li>
           <li>
             <div class="person-card is-soon">
@@ -51,6 +69,21 @@
             </div>
           </li>
         </ul>
+        <article class="story-card">
+          <h2>The Broken Off-Switch</h2>
+          <div class="story-body">
+            <p>Adam Shuaib has sat in about 5,000 meetings with people starting companies. He noticed the ones who did amazing work had almost always obsessed over something that seemed pointless, like memorizing every NBA player at 11, building their school out of Lego, collecting thousands of train tickets, or spending years perfecting a fantasy football formula.</p>
+            <p>He says that shows the hardest skill there is: sticking with something others might call boring for longer than it seems to deserve. He calls it a “broken off-switch.”</p>
+            <p>I thought of you two.</p>
+            <p>June Bug, you’ve practiced handstands for months. Kick up, fall down, kick up again. Then one day you held one for four whole seconds. Now you’re going for ten.</p>
+            <p>Maverick, you’re learning binary code, a whole language of 1s and 0s, and you can build anything out of Legos. Binary code may look like nothing at first, but every computer and video game runs on it. Maybe one day you can build me a computer out of Legos!</p>
+            <p>Here’s the secret: the so-called boring part IS the level up. When practice feels dull, you’re not doing it wrong. You’re right in the middle of it.</p>
+          </div>
+          <p class="pull-line">Keep that off-switch broken!</p>
+          <p>We’ll be cheering the whole way.</p>
+          <p class="sign-off">Love, Joejoe and Windzay</p>
+          <p class="footnote">Edited with help.</p>
+        </article>
       </section>
     </main>
 
