@@ -504,6 +504,31 @@ a.person-card:focus-visible {
   }
 }
 
+@media (min-width: 900px) {
+  .family-entry:has(.level-hero) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+    column-gap: 2.25rem;
+    align-items: center;
+    max-width: none;
+  }
+
+  .family-entry:has(.level-hero) .level-hero {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .level-up-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .family-catalog:has(.level-hero) .people {
+    max-width: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
