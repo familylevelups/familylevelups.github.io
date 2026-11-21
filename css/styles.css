@@ -310,6 +310,23 @@ h2 {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
 }
 
+.level-hero {
+  display: block;
+  margin: 0 0 1.15rem;
+  max-width: 100%;
+}
+
+.level-hero img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: var(--bg-panel);
+  border: 2px solid var(--stroke);
+  border-radius: 0.75rem;
+  box-shadow: 5px 5px 0 var(--shadow);
+}
+
 .family-entry p {
   margin: 0.85rem 0 0;
 }
