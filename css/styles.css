@@ -65,21 +65,21 @@
 }
 
 :root {
-  color-scheme: dark;
-  --bg: #10140f;
-  --bg-panel: #181e16;
-  --ink: #edf3e6;
-  --muted: #d2dec8;
-  --label: #e8f2e0;
-  --line: #3d4d38;
-  --stroke: #d7e2cc;
-  --shadow: #000000;
+  color-scheme: light;
+  --bg: #fff8ec;
+  --bg-panel: #fffdf8;
+  --ink: #1c1612;
+  --muted: #4a3d34;
+  --label: #3a312a;
+  --line: #e4d3bc;
+  --stroke: #2b211c;
+  --shadow: #1c1612;
   --amber: #f0c14b;
   --amber-ink: #1a1406;
-  --accent: #ffb4a2;
-  --accent-strong: #ff6a45;
-  --link: #f3d48a;
-  --focus: #f0c14b;
+  --accent: #c4341a;
+  --accent-strong: #8d2c14;
+  --link: #8d2c14;
+  --focus: #9a2a14;
   --display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
   --serif: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
   --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
@@ -177,7 +177,7 @@ a:focus-visible {
 .wrap,
 .mast-inner,
 .footer-inner {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1400px, calc(100% - 2rem));
   margin-inline: auto;
 }
 
@@ -198,7 +198,7 @@ a:focus-visible {
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem 0.35rem;
+  gap: 0.35rem 0.85rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -208,8 +208,9 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
   min-height: 44px;
-  padding: 0.2rem 0.45rem;
+  padding: 0.45rem 0.85rem;
   color: var(--ink);
   font-family: var(--mono);
   font-size: 0.95rem;
@@ -239,8 +240,8 @@ a:focus-visible {
   color: var(--ink);
   font-family: var(--display);
   font-weight: 700;
-  font-size: 1.45rem;
-  letter-spacing: -0.03em;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
   line-height: 1.1;
   text-decoration: none;
 }
@@ -293,12 +294,16 @@ h2 {
 }
 
 .family-catalog {
-  padding: 0.5rem 0 2.5rem;
+  padding: 1rem 0 0;
 }
 
 .family-entry {
   max-width: 42rem;
   margin: 0 0 2.75rem;
+}
+
+.family-catalog > .family-entry:last-child {
+  margin-bottom: 3.5rem;
 }
 
 .family-entry .kicker {
@@ -310,23 +315,46 @@ h2 {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
 }
 
+.tv {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.35rem;
+  position: relative;
+  max-width: 100%;
+  margin: 0 0 1.15rem;
+  padding: 0.4rem 0.45rem 0.55rem;
+  background: linear-gradient(180deg, #6e3d2e 0%, #4a2b22 18%, #3a221c 100%);
+  border: 3px solid #5c382c;
+  border-top: 6px solid #e25b3a;
+  border-radius: 0.85rem;
+  box-shadow: 3px 4px 0 var(--shadow);
+}
+
+.tv::before,
+.tv::after {
+  content: "";
+  position: absolute;
+  bottom: -0.28rem;
+  width: 16%;
+  height: 0.28rem;
+  background: #3a241c;
+  border-radius: 0 0 0.12rem 0.12rem;
+  pointer-events: none;
+}
+
+.tv::before {
+  left: 12%;
+}
+
+.tv::after {
+  right: 12%;
+}
+
 .level-hero {
   display: block;
-  position: relative;
-  margin: 0 0 1rem;
-  max-width: 100%;
-  padding: 0.32rem 0.36rem 0.82rem;
-  background:
-    radial-gradient(circle at 0.72rem calc(100% - 0.4rem), var(--accent) 0 0.16rem, #6a5344 0.17rem 0.25rem, transparent 0.27rem),
-    radial-gradient(circle at 1.28rem calc(100% - 0.4rem), #f3e6cf 0 0.16rem, #6a5344 0.17rem 0.25rem, transparent 0.27rem),
-    repeating-linear-gradient(90deg, #0e0c0a 0 1px, transparent 1px 3px) right 0.4rem bottom 0.28rem / 0.85rem 0.26rem no-repeat,
-    linear-gradient(#100e0c, #100e0c) left bottom / 100% 0.82rem no-repeat,
-    linear-gradient(180deg, #3c342e 0%, #241c18 100%);
-  border: 2px solid #6b5648;
-  border-radius: 0.7rem 0.7rem 0.5rem 0.5rem;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 180, 162, 0.55),
-    3px 4px 0 var(--shadow);
+  min-width: 0;
+  margin: 0;
 }
 
 .level-hero img {
@@ -336,36 +364,47 @@ h2 {
   height: auto;
   background: #000;
   border: 0;
-  border-radius: 0.28rem;
+  border-radius: 0.35rem;
   box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.72),
-    inset 0 0 10px rgba(0, 0, 0, 0.28);
+    inset 0 0 0 2px rgba(0, 0, 0, 0.55),
+    inset 0 10px 16px rgba(255, 255, 255, 0.16);
 }
 
-.level-hero::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: 0.32rem;
-  right: 0.36rem;
-  bottom: 0.82rem;
-  left: 0.36rem;
-  border-radius: 0.28rem;
-  background: linear-gradient(122deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 16%, transparent 38%);
-  pointer-events: none;
+.tv-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  width: 1.35rem;
 }
 
-.level-hero::after {
-  content: "";
-  position: absolute;
-  left: 14%;
-  right: 14%;
-  bottom: -0.22rem;
-  height: 0.22rem;
-  background:
-    linear-gradient(#2b231c, #2b231c) left / 22% 100% no-repeat,
-    linear-gradient(#2b231c, #2b231c) right / 22% 100% no-repeat;
-  pointer-events: none;
+.tv-grille {
+  display: block;
+  width: 0.85rem;
+  height: 1.7rem;
+  border-radius: 0.15rem;
+  border: 1px solid #2a1812;
+  background: repeating-linear-gradient(
+    to bottom,
+    #1a100c 0 2px,
+    #5a3a2c 2px 4px
+  );
+}
+
+.tv-knob {
+  display: block;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #ffd2c6, #e25b3a 42%, #7a2e1c 74%);
+  box-shadow:
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+    0 1px 0 #1a100c;
+}
+
+.tv-knob-alt {
+  background: radial-gradient(circle at 35% 32%, #fff8ee, #e6d3b4 40%, #6b5344 74%);
 }
 
 .family-entry p {
@@ -465,7 +504,7 @@ h2 {
   display: grid;
   gap: 0.9rem;
   max-width: 42rem;
-  margin: 1.75rem 0 0;
+  margin: 0 0 3.5rem;
   padding: 0;
   list-style: none;
 }
@@ -473,7 +512,8 @@ h2 {
 .person-card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 0.35rem;
   min-height: 8.5rem;
   padding: 1rem 1.05rem 1.1rem;
@@ -481,6 +521,31 @@ h2 {
   border: 2px solid var(--stroke);
   box-shadow: 5px 5px 0 var(--shadow);
   color: var(--ink);
+}
+
+.person-thumb {
+  width: 5.5rem;
+  max-width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+  border: 2px solid var(--stroke);
+  border-radius: 0.35rem;
+}
+
+.quest-line {
+  margin: 0.15rem 0 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.person-card a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--mono);
+  font-weight: 500;
 }
 
 a.person-card {
@@ -521,15 +586,14 @@ a.person-card:focus-visible {
   font-size: 1.05rem;
 }
 
-@media (min-width: 700px) {
-  .wrap,
-  .mast-inner,
-  .footer-inner {
-    width: min(1120px, calc(100% - 2.5rem));
-  }
+.level-up-copy h1 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+}
 
+@media (min-width: 700px) {
   .brand {
-    font-size: 1.9rem;
+    font-size: 1.25rem;
   }
 
   .page-head {
@@ -546,70 +610,23 @@ a.person-card:focus-visible {
 }
 
 @media (min-width: 900px) {
-  .page-head:has(+ .family-catalog .level-hero),
-  .family-catalog:has(.level-hero) {
-    width: min(1400px, calc(100% - 4rem));
-  }
-
-  .family-entry:has(.level-hero) {
+  .family-entry:has(.tv) {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: 2rem;
-    align-items: center;
+    align-items: start;
     max-width: none;
   }
 
-  .family-entry:has(.level-hero) .level-hero {
+  .family-entry:has(.tv) .tv {
     grid-column: 2;
     grid-row: 1;
     margin: 0;
-    position: relative;
-    padding: 0.62rem 0.68rem 1.45rem;
-    background:
-      radial-gradient(circle at 1.15rem calc(100% - 0.7rem), var(--accent) 0 0.26rem, #6a5344 0.28rem 0.4rem, transparent 0.42rem),
-      radial-gradient(circle at 2.2rem calc(100% - 0.7rem), #f3e6cf 0 0.26rem, #6a5344 0.28rem 0.4rem, transparent 0.42rem),
-      repeating-linear-gradient(90deg, #0e0c0a 0 2px, transparent 2px 5px) right 0.7rem bottom 0.5rem / 1.35rem 0.42rem no-repeat,
-      linear-gradient(#100e0c, #100e0c) left bottom / 100% 1.45rem no-repeat,
-      linear-gradient(180deg, #3c342e 0%, #241c18 100%);
-    border: 2px solid #6b5648;
-    border-radius: 1.15rem 1.15rem 0.9rem 0.9rem;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 180, 162, 0.55),
-      6px 8px 0 var(--shadow);
-  }
-
-  .family-entry:has(.level-hero) .level-hero img {
-    border: 0;
-    border-radius: 0.45rem;
-    box-shadow:
-      inset 0 0 0 2px rgba(0, 0, 0, 0.72),
-      inset 0 0 16px rgba(0, 0, 0, 0.35);
-  }
-
-  .level-hero::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0.62rem;
-    right: 0.68rem;
-    bottom: 1.45rem;
-    left: 0.68rem;
-    border-radius: 0.45rem;
-    background: linear-gradient(122deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 18%, transparent 40%);
-    pointer-events: none;
-  }
-
-  .level-hero::after {
-    content: "";
-    position: absolute;
-    left: 12%;
-    right: 12%;
-    bottom: -0.38rem;
-    height: 0.38rem;
-    background:
-      linear-gradient(#2b231c, #2b231c) left / 26% 100% no-repeat,
-      linear-gradient(#2b231c, #2b231c) right / 26% 100% no-repeat;
-    pointer-events: none;
+    gap: 0.75rem;
+    padding: 1rem 1.05rem 1.15rem;
+    border-width: 6px;
+    border-top-width: 14px;
+    border-radius: 1.35rem;
   }
 
   .level-up-copy {
@@ -617,7 +634,29 @@ a.person-card:focus-visible {
     grid-row: 1;
   }
 
-  .family-catalog:has(.level-hero) .people {
+  .tv-side {
+    width: 3rem;
+    gap: 0.55rem;
+  }
+
+  .tv-grille {
+    width: 2rem;
+    height: 5.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .tv-knob {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .tv::before,
+  .tv::after {
+    bottom: -0.55rem;
+    height: 0.55rem;
+  }
+
+  .family-catalog:has(.tv) .people {
     max-width: none;
   }
 }
